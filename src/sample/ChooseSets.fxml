@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChooseSets">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="299.0" style="-fx-background-color: #46e0c9;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="promptSetSize" layoutX="50.0" layoutY="142.0" text="Wie groß sollen die Sets sein?">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="boxSetSize" layoutX="50.0" layoutY="188.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: #46e0c9;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="promptSetNumber" layoutX="34.0" layoutY="142.0" text="Wie viele Sets willst du Suchen?">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="boxSetNumber" layoutX="34.0" layoutY="194.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
+            <Button fx:id="submitSetChoice" accessibleText="Submit" layoutX="204.0" layoutY="311.0" mnemonicParsing="false" onAction="#enterSetChoice" style="-fx-background-color: #ffffff;" text="Ok">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
