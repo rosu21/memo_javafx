@@ -8,13 +8,11 @@ import java.io.IOException;
 public class ChooseMode {
     // Attributes
     //---------------------------------------------------------------------------
-    Game game;
+
 
     //Constructor, getter, setter
     //---------------------------------------------------------------------------
-    public ChooseMode(Game game){
-        this.game = game;
-    }
+    public ChooseMode(){    }
 
 
     //FXML
@@ -38,22 +36,36 @@ public class ChooseMode {
     }
 
     public void singlePlayer(javafx.event.ActionEvent actionEvent) throws IOException {
-        game.setGamingMode(false);
 
-        Main m = new Main();
+        try{
+            Game game = Game.getInstance();
 
-        m.changeScene("GamingRoom.fxml");
+            game.setGamingMode(false);
 
+            Main m = new Main();
 
+            m.changeScene("GamingRoom.fxml");
 
+        } catch (IOException e) {
+            System.err.println(String.format("Error: %s", e.getMessage()));
+        }
     }
 
     public void botMode(javafx.event.ActionEvent actionEvent) throws IOException {
-        game.setGamingMode(true);
 
-        Main m = new Main();
+        try{
+            Game game = Game.getInstance();
 
-        m.changeScene("GamingRoom.fxml");
+            game.setGamingMode(true);
+
+            Main m = new Main();
+
+            m.changeScene("GamingRoom.fxml");
+
+
+        } catch (IOException e) {
+            System.err.println(String.format("Error: %s", e.getMessage()));
+        }
 
     }
 

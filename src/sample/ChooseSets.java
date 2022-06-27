@@ -14,8 +14,6 @@ import java.util.ResourceBundle;
 public class ChooseSets implements Initializable {
     // Attributes
     //---------------------------------------------------------------------------
-
-    public Game game = new Game();
     private int setSize = 0;
     private int setNumber = 0;
 
@@ -101,13 +99,23 @@ public class ChooseSets implements Initializable {
 
         if (this.setSize != 0 && this.setNumber != 0) {
 
+            try{
 
-            game.setSetSize(this.setSize);
-            game.setSetNumber(this.setNumber);
+                Game game = Game.getInstance();
+                game.setSetSize(this.setSize);
+                game.setSetNumber(this.setNumber);
 
-            Main m = new Main();
-            m.changeScene("ChooseMode.fxml");
-            //nextWindow("ChooseMode.fxml");
+                Main m = new Main();
+                m.changeScene("ChooseMode.fxml");
+                //nextWindow("ChooseMode.fxml");
+
+
+            } catch (IOException e) {
+                System.err.println(String.format("Error: %s", e.getMessage()));
+            }
+
+
+
         }
 
 
