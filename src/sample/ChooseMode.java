@@ -43,8 +43,8 @@ public class ChooseMode {
             game.setGamingMode(false);
 
             Main m = new Main();
-
             m.changeScene("GamingRoom.fxml");
+
 
         } catch (IOException e) {
             System.err.println(String.format("Error: %s", e.getMessage()));
@@ -59,7 +59,6 @@ public class ChooseMode {
             game.setGamingMode(true);
 
             Main m = new Main();
-
             m.changeScene("GamingRoom.fxml");
 
 
