@@ -56,6 +56,7 @@ public class ChooseMode {
             m.changeScene("GamingRoom.fxml");
 
 
+
         } catch (IOException e) {
             System.err.println(String.format("Error: %s", e.getMessage()));
         }

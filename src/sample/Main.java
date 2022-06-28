@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,10 +15,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         stg = primaryStage;
-        primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("ChooseSets.fxml"));
+
+        Parent root = FXMLLoader.load(getClass().getResource("GamingRoom.fxml"));
+
+        Image icon = new Image("img/FS-XRMBWUAAhL-s.jpg");
+        primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Memo");
         primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setResizable(false);
+        //primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
@@ -25,6 +31,8 @@ public class Main extends Application {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
     }
+
+
 
 
 
