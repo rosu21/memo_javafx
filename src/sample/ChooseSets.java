@@ -23,6 +23,9 @@ public class ChooseSets implements Initializable {
     //---------------------------------------------------------------------------
     public ChooseSets() { }
 
+    public int getSetSize() {
+        return setSize;
+    }
 
     //FXML
     //---------------------------------------------------------------------------
