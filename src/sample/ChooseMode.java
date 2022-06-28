@@ -28,6 +28,11 @@ public class ChooseMode {
     private Button buttonBack;
 
 
+    /**
+     * Changes to scene ChooseSets.fxml
+     * @param actionEvent
+     * @throws IOException
+     */
     public void goBack(javafx.event.ActionEvent actionEvent) throws IOException {
         Main m = new Main();
 
@@ -35,6 +40,11 @@ public class ChooseMode {
 
     }
 
+    /**
+     * Saves single player gaming mode value (false) in singleton class game. Changes to scene GamingRoom.fxml
+     * @param actionEvent
+     * @throws IOException
+     */
     public void singlePlayer(javafx.event.ActionEvent actionEvent) throws IOException {
 
         try{
@@ -51,6 +61,11 @@ public class ChooseMode {
         }
     }
 
+    /**
+     * Saves bot gaming mode value (true) in singleton class game. Changes to scene GamingRoom.fxml
+     * @param actionEvent
+     * @throws IOException
+     */
     public void botMode(javafx.event.ActionEvent actionEvent) throws IOException {
 
         try{

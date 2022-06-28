@@ -49,6 +49,11 @@ public class ChooseSets implements Initializable {
     private String[] setSizeChoice = {"2","3","4"};
     private String[] setNumberChoice = {"3","6","9"};
 
+    /**
+     * Initializes ChoiceBoxes
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -58,18 +63,14 @@ public class ChooseSets implements Initializable {
         boxSetSize.setOnAction(this::readSetSize);
         boxSetNumber.setOnAction(this::readSetNumber);
 
-
-
     }
-
-
 
 
     // Methods
     //---------------------------------------------------------------------------
 
     /**
-     * Reads user input from ChoiceBox boxSetSize and updates game object setSize.
+     * Reads set size from boxSetNumber. Saves value in this.setSize.
      *
      * @param event Userinput on ChoiceBox boxSetSize
      */
@@ -82,9 +83,8 @@ public class ChooseSets implements Initializable {
     }
 
     /**
-     * Reads user input from ChoiceBox boxSetNumber and updates game object setNumber.
-     *
-     * @param event User unput on ChoiceBox boxSetNumber
+     * Reads set number from boxSetNumber. Saves value in this.setNumber.
+     * @param event Userinput on ChoiceBox boxSetNumber
      */
     public void readSetNumber(Event event) {
 
@@ -93,7 +93,11 @@ public class ChooseSets implements Initializable {
 
     }
 
-    //Achtung, game muss noch weitergegeben werden
+    /**
+     * Passes this.setSize and this.setNumber to singleton class game. Changes scene to
+     * ChooseMode.fxml
+     * @throws IOException
+     */
     public void enterSetChoice() throws IOException{
 
 
