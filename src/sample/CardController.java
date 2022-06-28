@@ -4,25 +4,30 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.Objects;
-
 public class CardController {
 
     @FXML
-    private ImageView imageView;
-
+    private ImageView img;
     private Card card;
 
+    public Card getCard() {
+        return card;
+    }
+    public ImageView getImg() {
+        return img;
+    }
+
+
+    public CardController (){};
 
     public void setData(Card card) {
         this.card = card;
 
-        Image image = new Image(
-            Objects.requireNonNull(getClass().getResourceAsStream(card.getImgURL())));
-        imageView.setImage(image);
+        Image image = new Image(card.getImgURL());
+        img.setImage(image);
     }
 
-    public ImageView getImageView(){
-        return imageView;
-    }
+
 }
+
+

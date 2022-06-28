@@ -65,7 +65,7 @@ public class GamingRoom implements Initializable { // extends Application
             cardController.setData(cards.get(i));
 
             //grid.add(rectangle, column++, row);
-            grid.add(cardController.getImageView(), column++, row);
+            grid.add(cardController.getImg(), column++, row);
 
 
             //set grid width
@@ -79,7 +79,7 @@ public class GamingRoom implements Initializable { // extends Application
             grid.setMaxHeight(Region.USE_PREF_SIZE);
 
             //GridPane.setMargin(rectangle, new Insets(10));
-            GridPane.setMargin(cardController.getImageView(), new Insets(10));
+            GridPane.setMargin(cardController.getImg(), new Insets(10));
 
         }
     }

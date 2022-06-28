@@ -2,7 +2,7 @@ package sample;
 
 public class Card {
     //Attributes
-    private String imgURL;
+    private String imgURL = "img/FS-XAYwWUAM3SHE.jpg";
     private int setID;
 
     // Getter, setter

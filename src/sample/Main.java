@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         stg = primaryStage;
 
-        Parent root = FXMLLoader.load(getClass().getResource("GamingRoom.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ChooseSets.fxml"));
 
         Image icon = new Image("img/FS-XRMBWUAAhL-s.jpg");
         primaryStage.getIcons().add(icon);
