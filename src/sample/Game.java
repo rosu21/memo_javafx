@@ -13,6 +13,8 @@ public final class Game {
 
     private boolean gamingMode;
 
+    private int turnNumber = 0;
+
 
     private final static Game gameInstance = new Game();
 
@@ -51,8 +53,11 @@ public final class Game {
     }
 
 
+    public int getTurnNumber() {
+        return turnNumber;
+    }
 
-
-
-
+    public void setTurnNumber(int turnNumber) {
+        this.turnNumber = turnNumber;
+    }
 }

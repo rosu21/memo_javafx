@@ -3,7 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +30,8 @@ public class GamingRoom implements Initializable { // extends Application
     private String imgURL = new String("img/FS-XRMBWUAAhL-s.jpg");
     //private Image image = new Image("img/FS-XRMBWUAAhL-s.jpg");
 
+
+
     @FXML
     private GridPane grid;
 
@@ -38,6 +40,9 @@ public class GamingRoom implements Initializable { // extends Application
 
     @FXML
     private ImageView cardImg;
+
+    @FXML
+    private Label labelZug;
 
     private List<Card> cards = new ArrayList<>();
     private Image image;
@@ -130,6 +135,7 @@ public class GamingRoom implements Initializable { // extends Application
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cards.addAll(getCards());
+        changeLabelZug();
 
         int column = 0;
         int row = 1;
@@ -145,12 +151,13 @@ public class GamingRoom implements Initializable { // extends Application
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(cards.get(i));
 
-                if (column == 3) {
+                if (column == 6) {
                     column = 0;
                     row++;
                 }
 
-                grid.add(anchorPane, column++, row); //(child,column,row)
+                grid.add(anchorPane, column, row); //(child,column,row)
+                column++;
                 // set grid width
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
@@ -160,12 +167,19 @@ public class GamingRoom implements Initializable { // extends Application
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
+                grid.setHgap(10);
+                grid.setVgap(10);
+
                 //GridPane.setMargin(rectangle, new Insets(10));
-                GridPane.setMargin(cardController.getImg(), new Insets(10));
+                //GridPane.setMargin(cardController.getImg(), new Insets(0, 0 ,0, 0));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void changeLabelZug(){
+        labelZug.setText(String.format("Zug: %s",game.getTurnNumber()));
     }
 
 

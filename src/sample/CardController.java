@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class CardController {
+    Game game = Game.getInstance();
+
 
 
     @FXML
@@ -44,6 +46,8 @@ public class CardController {
                 cardImage.setImage(image);
 
                 this.card.setShowFront(false);
+
+                game.setTurnNumber(game.getTurnNumber() + 1);
 
             } catch (Exception e) {
                 System.err.println(String.format("Error: %s", e.getMessage()));
