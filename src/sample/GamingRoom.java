@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -43,6 +44,9 @@ public class GamingRoom implements Initializable { // extends Application
 
     @FXML
     private Label labelZug;
+
+    @FXML
+    private Button buttonBack;
 
     private List<Card> cards = new ArrayList<>();
     private Image image;
@@ -183,6 +187,11 @@ public class GamingRoom implements Initializable { // extends Application
     }
 
 
+    public void goBack(javafx.event.ActionEvent actionEvent) throws IOException {
+        Main m = new Main();
+        m.changeScene("ChooseMode.fxml");
+
+    }
 
 }
 
@@ -193,12 +202,7 @@ public class GamingRoom implements Initializable { // extends Application
 
 /*
 
-    public void goBack(javafx.event.ActionEvent actionEvent) throws IOException {
-        Main m = new Main();
 
-        m.changeScene("ChooseMode.fxml");
-
-    }
 
     public void update(javafx.event.ActionEvent actionEvent) throws IOException {
         Game game = Game.getInstance();

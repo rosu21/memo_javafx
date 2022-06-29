@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #46e0c9;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GamingRoom">
    <children>
-      <GridPane fx:id="grid" prefHeight="0.0" prefWidth="7.0">
+      <BorderPane prefHeight="70.0" prefWidth="600.0">
+         <center>
+            <Label fx:id="labelZug" text="Zug: " BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <Button fx:id="buttonBack" mnemonicParsing="false" onAction="#goBack" text="Zurück" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+      </BorderPane>
+      <GridPane fx:id="grid" layoutY="75.0" prefHeight="0.0" prefWidth="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
