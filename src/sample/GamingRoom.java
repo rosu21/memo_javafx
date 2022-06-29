@@ -1,14 +1,19 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -23,18 +28,34 @@ public class GamingRoom implements Initializable { // extends Application
 
     //Other attributes
     private String imgURL = new String("img/FS-XRMBWUAAhL-s.jpg");
+    //private Image image = new Image("img/FS-XRMBWUAAhL-s.jpg");
+
     @FXML
     private GridPane grid;
+
+    @FXML
+    private MyListener myListener;
+
+    @FXML
+    private ImageView cardImg;
+
     private List<Card> cards = new ArrayList<>();
     private Image image;
 
+
+
     //Methods
+
+    /**
+     * Generates the entire deck of cards.
+     * @return cards
+     */
     private List<Card> getData() {
         List<Card> cards = new ArrayList<>();
         Card card;
 
         card = new Card();
-        card.setImgURL("img/FS-XRMBWUAAhL-s.jpg");
+        card.setImgURL("img/FS-XAYwWUAM3SHE.jpg");
         card.setSetID(1);
         cards.add(card);
 
@@ -44,130 +65,113 @@ public class GamingRoom implements Initializable { // extends Application
         cards.add(card);
 
         card = new Card();
-        card.setImgURL("img/FS-XAYwWUAM3SHE.jpg");
+        card.setImgURL("img/FS-XKkTXEAI7g_C.jpg");
         card.setSetID(3);
+        cards.add(card);
+
+        card = new Card();
+        card.setImgURL("img/FS-XRMBWUAAhL-s.jpg");
+        card.setSetID(4);
+        cards.add(card);
+
+        card = new Card();
+        card.setImgURL("img/FS-XuelWQAAfmtg.jpg");
+        card.setSetID(5);
+        cards.add(card);
+
+        card = new Card();
+        card.setImgURL("img/FS-YHtNWAAAdIOQ.jpg");
+        card.setSetID(6);
+        cards.add(card);
+
+        card = new Card();
+        card.setImgURL("img/FS-YmapWQAA4ezj.jpg");
+        card.setSetID(7);
+        cards.add(card);
+
+        card = new Card();
+        card.setImgURL("img/FS-YmbYWYAMhu_D.jpg");
+        card.setSetID(8);
+        cards.add(card);
+
+        card = new Card();
+        card.setImgURL("img/FS-YvSNWYAAfb-6.jpg");
+        card.setSetID(9);
         cards.add(card);
 
         return cards;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        cards.addAll(getData());
-        int column = 0;
-        int row = 1;
 
-        for (int i = 0; i < cards.size(); i++) {
+    /**
+     * Generates the playing deck based on setNumber and setSize. Cards are returned in random
+     * order.
+     * @return playingDeck;
+     */
+    public List<Card> getCards() {
+        List<Card> completeDeck = new ArrayList<>();
+        completeDeck.addAll(getData());
+        Collections.shuffle(completeDeck);
 
-            //Rectangle rectangle = new Rectangle(80,80, Color.BLACK);
+        List<Card> playingDeck = new ArrayList<>();
 
-            CardController cardController = new CardController();
-            cardController.setData(cards.get(i));
+        for (int i = 0; i < setNumber; i++){
 
-            //grid.add(rectangle, column++, row);
-            grid.add(cardController.getImg(), column++, row);
+            playingDeck.add(completeDeck.get(i));
 
-
-            //set grid width
-            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-            grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-            //set grid height
-            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-            grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-            //GridPane.setMargin(rectangle, new Insets(10));
-            GridPane.setMargin(cardController.getImg(), new Insets(10));
-
+            for (int j = 1; j < setSize; j++){
+                playingDeck.add(completeDeck.get(i));
+            }
         }
+        Collections.shuffle(playingDeck);
+        return playingDeck;
     }
 
-    /*
-    *  @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //cards.addAll(getData());
+        cards.addAll(getCards());
+
         int column = 0;
         int row = 1;
-
         try {
             for (int i = 0; i < cards.size(); i++) {
 
+                //Rectangle rectangle = new Rectangle(80,80, Color.BLACK);
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("card.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("Card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(cards.get(i));
 
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
 
-                grid.add(anchorPane, column++, row);
-
-
-
-                //set grid width
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                // set grid width
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
-
                 //set grid height
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-                GridPane.setMargin(anchorPane, new Insets(10));
-
+                //GridPane.setMargin(rectangle, new Insets(10));
+                GridPane.setMargin(cardController.getImg(), new Insets(10));
             }
-
         } catch (IOException e) {
-            System.err.println(String.format("Error: %s", e.getMessage()));
+            throw new RuntimeException(e);
         }
-
     }
-    * */
+
+
 
 }
 
-   /*
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage = stage;
-        stage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("GamingRoom.fxml"));
-
-        stage.setScene(new Scene(createContent()));
-        stage.show();
-    }
-*/
-    /*
-    private Parent createContent() {
-        VBox root = new VBox();
-        root.setPrefSize(1280, 720 + 100);
-
-        var cardTilePane = new Pane();
-
-        Random random = new Random();
-
-        for (int i = 1; i <=9; i ++){
-
-            var cardTile = new Card(Integer.toString(i));
-
-            cardTile.setTranslateX(random.nextInt(1280 / 80) * 80);
-            cardTile.setTranslateY(random.nextInt(720 / 80) * 80);
-
-            cardTilePane.getChildren().add(cardTile);
-
-        }
-
-        root.getChildren().add(cardTilePane);
-
-
-        return root;
-
-    }
-*/
 
 
 

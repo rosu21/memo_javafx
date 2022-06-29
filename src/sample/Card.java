@@ -2,16 +2,19 @@ package sample;
 
 public class Card {
     //Attributes
-    private String imgURL = "img/FS-XAYwWUAM3SHE.jpg";
+
+    private String imgURL;
+    private String imgBackCover = "img/cardBackCover.jpg";
     private int setID;
+    private boolean showFront = true;
 
     // Getter, setter
     public int getSetID() {
-        return setID;
+        return this.setID;
     }
 
     public String getImgURL() {
-        return imgURL;
+        return this.imgURL;
     }
 
     public void setImgURL(String imgURL) {
@@ -23,4 +26,15 @@ public class Card {
     }
 
 
+    public String getImgBackCover() {
+        return imgBackCover;
+    }
+
+    public boolean isShowFront() {
+        return showFront;
+    }
+
+    public void setShowFront(boolean showFront) {
+        this.showFront = showFront;
+    }
 }
