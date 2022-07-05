@@ -14,4 +14,7 @@ Player can choose size and number of sets.
 Cards are dealt according to the chosen size and number of sets.
 Cards are clickable and basically the game is playable. However, the game does not enforce rules yet.
 Results are not saved.
+Turns are not saved.
+Bot mode is not yet active.
 Design is very basic.
+Images are from MKHB's test of Dall-E2 (https://twitter.com/mkbhd/status/1526604726133051392?lang=en)
