@@ -1,4 +1,4 @@
-package sample;
+package mainGame;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;

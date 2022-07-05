@@ -2,9 +2,8 @@ package tutorial;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import sample.Main;
+import mainGame.Main;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class AfterLogin {

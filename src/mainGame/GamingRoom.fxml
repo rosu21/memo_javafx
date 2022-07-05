@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #46e0c9;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GamingRoom">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #46e0c9;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainGame.GamingRoom">
    <children>
       <BorderPane prefHeight="70.0" prefWidth="600.0">
          <center>

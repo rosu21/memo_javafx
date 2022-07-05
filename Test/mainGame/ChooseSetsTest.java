@@ -1,4 +1,4 @@
-package sample;
+package mainGame;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;

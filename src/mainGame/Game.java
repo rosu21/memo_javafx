@@ -1,4 +1,4 @@
-package sample;
+package mainGame;
 
 /*
 * Idea: use singleton class to pass information between javafx scenes.
